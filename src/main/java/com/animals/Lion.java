@@ -1,13 +1,11 @@
-package com.example;
-
+package com.animals;
 import java.util.List;
 
 public class Lion {
-
     boolean hasMane;
     final Feline feline;
 
-    public Lion(String sex, Feline feline) throws Exception {
+    public Lion(String sex, Feline feline) throws Exception { // Добавили feline в конструктор
         this.feline = feline;
 
         if ("Самец".equals(sex)) {

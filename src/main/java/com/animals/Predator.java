@@ -1,4 +1,4 @@
-package com.example;
+package com.animals;
 
 import java.util.List;
 
