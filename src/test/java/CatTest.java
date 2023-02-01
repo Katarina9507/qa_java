@@ -1,24 +1,35 @@
 import com.animals.Cat;
 import com.animals.Feline;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
-public class CatTest {
+import static org.junit.Assert.assertEquals;
+
+@RunWith(MockitoJUnitRunner.class)
+public class CatMockTest {
+
+    @Mock
+    Feline feline;
+
     @Test
-    public void getSoundCatTest()  {
-        Feline feline = new Feline();
-        Cat cat = new Cat(feline);
-        String voice = cat.getSound();
-        Assert.assertEquals("Мяу", voice);
+    public void getSoundCatTest() {
+        Cat cat = new Cat(new Feline());
+        String expected = "Мяу";
+        String actual = cat.getSound();
+        assertEquals("Некорректный результат вызова метода", expected, actual);
     }
 
     @Test
-    public void getFoodCatTest() throws Exception {
-        Feline feline = new Feline();
+    public void getFoodShouldReturnFoodOfPredator() throws Exception {
         Cat cat = new Cat(feline);
-        List<String> food = cat.getFood();
-        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        List<String> expected = List.of("Животные", "Птицы", "Рыба");
+        List<String> actual = cat.getFood();
+        assertEquals("Некорректный результат вызова метода", expected, actual);
     }
 }
