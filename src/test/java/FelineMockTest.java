@@ -4,22 +4,21 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-public class FelineTest {
+public class FelineMockTest {
+
+    Feline feline = new Feline();
 
     @Test
     public void getFamilyFelineTest() {
-        Feline feline = new Feline();
         String family = feline.getFamily();
         Assert.assertEquals("Кошачьи", family);
     }
 
     @Test
     public void getFoodFelineTest() throws Exception {
-        Feline feline = new Feline();
         List<String> food = feline.getFood("Хищник");
         Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
     }
@@ -34,7 +33,6 @@ public class FelineTest {
     @Test
     public void getFoodFelineExceptionTest() {
         try {
-            Feline feline = new Feline();
             List<String> food = feline.getFood("Человек");
             Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
         } catch (Exception exception) {
@@ -44,21 +42,18 @@ public class FelineTest {
 
     @Test
     public void eatMeatTest() throws Exception {
-        Feline feline = new Feline();
         List<String> food = feline.eatMeat();
         Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
     }
 
     @Test
     public void getKittensTest() {
-        Feline feline = new Feline();
         int kittens = feline.getKittens();
         Assert.assertEquals(1, kittens);
     }
 
     @Test
     public void getKittensWithArgumentTest() {
-        Feline feline = new Feline();
         int kittens = feline.getKittens(10);
         Assert.assertEquals(10, kittens);
     }

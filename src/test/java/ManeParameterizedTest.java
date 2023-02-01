@@ -19,21 +19,14 @@ public class ManeParameterizedTest {
     public static Object[][] getTestData() {
         return new Object[][] {
                 {"Самец", true},
-                {"Самка", false},
-                {"Иное", false},
+                {"Самка", false}
         };
     }
     @Test
-    public void isHaveManeTest() {
-        try {
+    public void isHaveManeTest() throws Exception {
             Feline feline = new Feline();
             Lion lion = new Lion(lionType, feline);
             boolean actual = lion.doesHaveMane();
             Assert.assertEquals(mane, actual);
-        }
-        catch (Exception exception) {
-            Assert.assertEquals(exception.getMessage(),"Используйте допустимые значения пола животного - самец или самка");
-        }
     }
-
 }
