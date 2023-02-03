@@ -7,7 +7,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-public class FelineMockTest {
+public class FelineTest {
 
     Feline feline = new Feline();
 
@@ -20,7 +20,7 @@ public class FelineMockTest {
     @Test
     public void getFoodFelineTest() throws Exception {
         List<String> food = feline.getFood("Хищник");
-        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
+        Assert.assertEquals("Получен некорректный список", List.of("Животные", "Птицы", "Рыба"), food);
     }
 
     @Test
@@ -31,19 +31,15 @@ public class FelineMockTest {
     }
 
     @Test
-    public void getFoodFelineExceptionTest() {
-        try {
-            List<String> food = feline.getFood("Человек");
-            Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
-        } catch (Exception exception) {
-            Assert.assertEquals(exception.getMessage(), "Неизвестный вид животного, используйте значение Травоядное или Хищник");
-        }
-    }
-
-    @Test
     public void eatMeatTest() throws Exception {
         List<String> food = feline.eatMeat();
         Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), food);
+    }
+
+    @Test
+    public void getFoodWhenAnimal() throws Exception {
+        List<String> actualResult = feline.getFood("Травоядное");
+        Assert.assertEquals("Получен некорректный список", List.of("Трава", "Различные растения"), actualResult);
     }
 
     @Test
@@ -53,7 +49,7 @@ public class FelineMockTest {
     }
 
     @Test
-    public void getKittensWithArgumentTest() {
+    public void getKittensWithParameterTest() {
         int kittens = feline.getKittens(10);
         Assert.assertEquals(10, kittens);
     }

@@ -25,13 +25,9 @@ public class LionExceptionTest {
                 "Львёнок"
         };
     }
-
+    
     @Test(expected = java.lang.Exception.class)
     public void LionInvalidSexException() throws Exception {
-        try {
-            Lion lion = new Lion(LION_SEX, feline);
-        } catch (Exception exception) {
-            throw new Exception("Используйте допустимые значения пола животного - самец или самка");
-        }
+        Lion lion = new Lion(LION_SEX, feline);
     }
 }
