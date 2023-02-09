@@ -27,7 +27,7 @@ public class LionExceptionTest {
     }
     
     @Test(expected = java.lang.Exception.class)
-    public void LionInvalidSexException() throws Exception {
+    public void lionInvalidSexException() throws Exception {
         Lion lion = new Lion(LION_SEX, feline);
     }
 }

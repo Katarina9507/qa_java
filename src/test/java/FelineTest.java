@@ -37,7 +37,7 @@ public class FelineTest {
     }
 
     @Test
-    public void getFoodWhenAnimal() throws Exception {
+    public void getHerbivoreFood() throws Exception {
         List<String> actualResult = feline.getFood("Травоядное");
         Assert.assertEquals("Получен некорректный список", List.of("Трава", "Различные растения"), actualResult);
     }
