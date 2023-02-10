@@ -10,8 +10,8 @@ public class LionExceptionTest {
     Feline feline;
     private final String lionSex;
 
-    public LionExceptionTest(String Sex) {
-        this.lionSex = Sex;
+    public LionExceptionTest(String sex) {
+        this.lionSex = sex;
     }
 
     @Parameterized.Parameters()
