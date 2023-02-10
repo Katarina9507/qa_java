@@ -8,10 +8,10 @@ import org.junit.runners.Parameterized;
 public class LionExceptionTest {
 
     Feline feline;
-    private final String LION_SEX;
+    private final String lionSex;
 
     public LionExceptionTest(String Sex) {
-        this.LION_SEX = Sex;
+        this.lionSex = Sex;
     }
 
     @Parameterized.Parameters()
@@ -28,6 +28,6 @@ public class LionExceptionTest {
     
     @Test(expected = java.lang.Exception.class)
     public void lionInvalidSexException() throws Exception {
-        Lion lion = new Lion(LION_SEX, feline);
+        Lion lion = new Lion(lionSex, feline);
     }
 }
